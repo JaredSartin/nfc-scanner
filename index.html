@@ -1,0 +1,27 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Loaded!</h1>
+    <script>
+      if((navigator).nfc) {
+        //this.setState({canScan: true, scannerReady: true});
+        (navigator).nfc.watch((message) => {
+          //if(!this.state.scannerReady) return;
+          alert("scan!");
+          let records = message.records;
+          let recordData = records[0]['data'];
+          let badgeId = recordData.split('@')[0];
+          let fields = recordData.split("\u001f");
+
+          //this.handleScan({
+          //  badgeId: badgeId,
+          //  firstName: fields[2],
+          //  lastName: fields[3],
+          //});
+        }, {mode: 'any'})
+        .then(() => console.log("Added a watch."))
+        .catch(err => console.log("Adding watch failed: " + err.name));
+    </script>
+  </body>
+</html>
