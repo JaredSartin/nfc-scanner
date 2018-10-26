@@ -11,8 +11,10 @@
           alert("scan!");
           let records = message.records;
           let recordData = records[0]['data'];
-          let badgeId = recordData.split('@')[0];
-          let fields = recordData.split("\u001f");
+          //let badgeId = recordData.split('@')[0];
+          //let fields = recordData.split("\u001f");
+
+          parent.window.postMessage(recordData, "http://127.0.0.1");
 
           //this.handleScan({
           //  badgeId: badgeId,
