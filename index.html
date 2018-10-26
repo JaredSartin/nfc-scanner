@@ -9,13 +9,12 @@
         //this.setState({canScan: true, scannerReady: true});
         navigator.nfc.watch((message) => {
           //if(!this.state.scannerReady) return;
-          alert("scan!");
           let records = message.records;
           let recordData = records[0]['data'];
           //let badgeId = recordData.split('@')[0];
           //let fields = recordData.split("\u001f");
 
-          parent.window.postMessage(recordData, "http://127.0.0.1");
+          parent.window.postMessage(recordData, "*");
 
           //this.handleScan({
           //  badgeId: badgeId,
