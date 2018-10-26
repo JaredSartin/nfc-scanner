@@ -4,9 +4,10 @@
   <body>
     <h1>Loaded!</h1>
     <script>
-      if((navigator).nfc) {
+      if(navigator.nfc) {
+        document.body.append("Scanning....");
         //this.setState({canScan: true, scannerReady: true});
-        (navigator).nfc.watch((message) => {
+        navigator.nfc.watch((message) => {
           //if(!this.state.scannerReady) return;
           alert("scan!");
           let records = message.records;
